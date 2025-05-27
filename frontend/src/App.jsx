@@ -1,9 +1,21 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// Import pages
+import MainLayout from "./layout/MainLayout";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
-    <div className="text-red-500 text-xl font-semibold">Subscribe to me ayo</div>
-  )
-}
+    <div className="">
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+          </Route>
+        </Routes>
+      </Router>
+    </div>
+  );
+};
 
-export default App
+export default App;
