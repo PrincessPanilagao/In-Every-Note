@@ -105,7 +105,7 @@ const Navbar = () => {
         {/* (X) Button */}
         <div className="p-4 flex justify-end text-3xl z-[1000]">
           <button
-            className="text-4xl bg-[#9A2B2E] text-white rounded-full p-2"
+            className="text-3xl bg-[#9A2B2E] text-white rounded-full p-2"
             onClick={() => setMobileNav(!MobileNav)}
           >
             <RxCross2 />
