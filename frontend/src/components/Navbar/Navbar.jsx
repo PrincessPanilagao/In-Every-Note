@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
+// import { useState } from "react";
 
 // import logo from "/assets/logo.png"; // logo
 
 const Navbar = () => {
+  const [MobileNav, setMobileNav] = useState(false);
   // Menu links
   const navLinks = [
     {
@@ -27,6 +29,7 @@ const Navbar = () => {
 
   return (
     <nav className="px-4 md:px-8 lg:px-12 py-2 relative">
+      {/* Navbar for Laptop */}
       <div className="flex items-center justify-between">
         {/* Left Links: Home, About */}
         <div className="hidden lg:flex flex-1 gap-4 ">
@@ -79,19 +82,36 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="1-4/6 flex items-center justify-end lg:hidden">
-          {/*Hamburger button*/}
-          <button className="text-5xl">
+        {/*Hamburger button*/}
+        <div
+          className={`1-4/6 flex items-center justify-end lg:hidden transition-opacity duration-300 ${
+            MobileNav ? "opacity-0 pointer-events-none" : "opacity-100 z-[1000]"
+          }`}
+        >
+          <button className="text-4xl" onClick={() => setMobileNav(true)}>
             <IoReorderThreeOutline />
           </button>
         </div>
       </div>
-      <div className={`fixed top-0 left-0 w-full h-screen bg-[#F8F2ED]" `}>
-        <div className="p-8 flex items-center justify-end text-3xl">
-          <button>
+
+      {/* Navbar for Tablet & Mobile */}
+      <div
+        className={`fixed top-0 left-0 w-full h-screen bg-[#F8F2ED] ${
+          MobileNav
+            ? "translate-y-0 pointer-events-auto visible"
+            : "-translate-y-full pointer-events-none invisible"
+        } transition-all duration-500 ease-in-out`}
+      >
+        {/* (X) Button */}
+        <div className="p-4 flex justify-end text-3xl z-[1000]">
+          <button
+            className="text-4xl bg-[#9A2B2E] text-white rounded-full p-2"
+            onClick={() => setMobileNav(!MobileNav)}
+          >
             <RxCross2 />
           </button>
         </div>
+        {/* Collapsable Menu */}
         <div className="h-full flex flex-col items-center justify-center">
           {navLinks.map((items, i) => (
             <Link
@@ -102,7 +122,7 @@ const Navbar = () => {
                 borderColor: "#262424",
                 borderWidth: "1px", // required for borderColor to apply
               }}
-              className="mb-8 text-2xl px-6 py-2 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+              className="mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
             >
               {items.name}
             </Link>
@@ -116,7 +136,7 @@ const Navbar = () => {
               borderColor: "#262424",
               borderWidth: "1px", // required for borderColor to apply
             }}
-            className="mb-8 text-2xl px-6 py-2 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+            className="mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
           >
             Login
           </Link>
@@ -128,7 +148,7 @@ const Navbar = () => {
               borderColor: "#262424",
               borderWidth: "1px", // required for borderColor to apply
             }}
-            className="mb-8 text-2xl px-6 py-2 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+            className="mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
           >
             Signup
           </Link>
