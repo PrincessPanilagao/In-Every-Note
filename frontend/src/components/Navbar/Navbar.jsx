@@ -13,17 +13,17 @@ const Navbar = () => {
     {
       // Home
       name: "HOME",
-      path: "src/pages/Home.jsx",
+      path: "/",
     },
     {
       // About
       name: "ABOUT",
-      path: "/about",
+      path: "/",
     },
     {
       // Profile
       name: "PROFILE",
-      path: "/profile",
+      path: "/",
     },
   ];
 
@@ -50,7 +50,7 @@ const Navbar = () => {
 
         {/* Center: IEN Logo */}
         <div className="flex justify-center lg:flex-1">
-          <Link to="/Home">
+          <Link to="/">
             <img
               src="src/assets/logo.png"
               alt="In Every Note Logo"
@@ -61,7 +61,7 @@ const Navbar = () => {
 
         {/* Right Links: Signup, Login */}
         <div className="hidden w-2/6 lg:flex items-center justify-end">
-          <Link
+          <Link to="/login"
             style={{
               // backgroundColor: "#FCFAF9",
               borderColor: "#262424",
@@ -69,9 +69,9 @@ const Navbar = () => {
             }}
             className="font-worksans px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
           >
-            LOGIN
+            LOG IN
           </Link>
-          <Link
+          <Link to="/signup"
             style={{
               // backgroundColor: "#FCFAF9",
               borderColor: "#262424",
@@ -79,7 +79,7 @@ const Navbar = () => {
             }}
             className="font-worksans ms-4 px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
           >
-            SIGNUP
+            SIGN UP
           </Link>
         </div>
 
@@ -139,7 +139,7 @@ const Navbar = () => {
             }}
             className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
           >
-            LOGIN
+            LOG IN
           </Link>
           {/*Signup*/}
           <Link
@@ -151,7 +151,7 @@ const Navbar = () => {
             }}
             className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
           >
-            SIGNUP
+            SIGN UP
           </Link>
         </div>
       </div>
