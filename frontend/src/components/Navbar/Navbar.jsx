@@ -12,17 +12,17 @@ const Navbar = () => {
   const navLinks = [
     {
       // Home
-      name: "Home",
-      path: "/home",
+      name: "HOME",
+      path: "src/pages/Home.jsx",
     },
     {
       // About
-      name: "About",
+      name: "ABOUT",
       path: "/about",
     },
     {
       // Profile
-      name: "Profile",
+      name: "PROFILE",
       path: "/profile",
     },
   ];
@@ -32,17 +32,16 @@ const Navbar = () => {
       {/* Navbar for Laptop */}
       <div className="flex items-center justify-between">
         {/* Left Links: Home, About */}
-        <div className="hidden lg:flex flex-1 gap-4 ">
+        <div className="font-worksans hidden lg:flex flex-1 gap-4 ">
           {navLinks.map((items, i) => (
             <Link
               key={i}
               to={items.path}
               style={{
-                // backgroundColor: "#FCFAF9",
                 borderColor: "#262424",
-                borderWidth: "1px", // required for borderColor to apply
+                borderWidth: "1.5px", // required for borderColor to apply
               }}
-              className="ms-1 px-6 py-2 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+              className="ms-1 px-7 py-1 border rounded-full bg-[#FCFAF9] transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
             >
               {items.name}
             </Link>
@@ -50,12 +49,12 @@ const Navbar = () => {
         </div>
 
         {/* Center: IEN Logo */}
-        <div className="justify-start logo brand-name lg:flex flex-1 justify-center">
-          <Link to="/">
+        <div className="flex justify-center lg:flex-1">
+          <Link to="/Home">
             <img
               src="src/assets/logo.png"
               alt="In Every Note Logo"
-              className="h-auto w-14"
+              className="w-10 sm:w-12 md:w-14 h-auto"
             />
           </Link>
         </div>
@@ -66,26 +65,28 @@ const Navbar = () => {
             style={{
               // backgroundColor: "#FCFAF9",
               borderColor: "#262424",
+              borderWidth: "1.5px",
             }}
-            className="px-6 py-2 border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+            className="font-worksans px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
           >
-            Login
+            LOGIN
           </Link>
           <Link
             style={{
               // backgroundColor: "#FCFAF9",
               borderColor: "#262424",
+              borderWidth: "1.5px",
             }}
-            className="ms-4 px-6 py-2 border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+            className="font-worksans ms-4 px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
           >
-            Signup
+            SIGNUP
           </Link>
         </div>
 
         {/*Hamburger button*/}
         <div
           className={`1-4/6 flex items-center justify-end lg:hidden transition-opacity duration-300 ${
-            MobileNav ? "opacity-0 pointer-events-none" : "opacity-100 z-[1000]"
+            MobileNav ? "opacity-0 pointer-events-none" : "opacity-100 z-[50]"
           }`}
         >
           <button className="text-4xl" onClick={() => setMobileNav(true)}>
@@ -100,10 +101,10 @@ const Navbar = () => {
           MobileNav
             ? "translate-y-0 pointer-events-auto visible"
             : "-translate-y-full pointer-events-none invisible"
-        } transition-all duration-500 ease-in-out`}
+        } transition-all duration-500 ease-in-out z-[50]`}
       >
         {/* (X) Button */}
-        <div className="p-4 flex justify-end text-3xl z-[1000]">
+        <div className="p-4 flex justify-end text-3xl z-[50]">
           <button
             className="text-3xl bg-[#9A2B2E] text-white rounded-full p-2"
             onClick={() => setMobileNav(!MobileNav)}
@@ -112,7 +113,7 @@ const Navbar = () => {
           </button>
         </div>
         {/* Collapsable Menu */}
-        <div className="h-full flex flex-col items-center justify-center">
+        <div className="h-full flex flex-col items-center justify-center z-[50]">
           {navLinks.map((items, i) => (
             <Link
               key={i}
@@ -122,7 +123,7 @@ const Navbar = () => {
                 borderColor: "#262424",
                 borderWidth: "1px", // required for borderColor to apply
               }}
-              className="mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+              className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
             >
               {items.name}
             </Link>
@@ -136,9 +137,9 @@ const Navbar = () => {
               borderColor: "#262424",
               borderWidth: "1px", // required for borderColor to apply
             }}
-            className="mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+            className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
           >
-            Login
+            LOGIN
           </Link>
           {/*Signup*/}
           <Link
@@ -148,9 +149,9 @@ const Navbar = () => {
               borderColor: "#262424",
               borderWidth: "1px", // required for borderColor to apply
             }}
-            className="mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+            className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
           >
-            Signup
+            SIGNUP
           </Link>
         </div>
       </div>
