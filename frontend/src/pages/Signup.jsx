@@ -19,7 +19,7 @@ const Signup = () => {
     setValues({ ...Values, [name]: value });
   };
 
-  // Function for submitting sign-in
+  // Function for submitting sign-up
   const handleSubmit = async () => {
     // Connecting to sign-up API (user.js)
     try {
@@ -28,7 +28,7 @@ const Signup = () => {
         Values
       );
       // Showing data message success alert
-      toast.success(res.data.message);
+      console.log(res.data.message);
       // direct to login when successful
       navigate("/login"); 
     } catch (error) {
