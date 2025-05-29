@@ -2,11 +2,13 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const userApi = require("./routes/user");
-const NoteApi = require("./routes/ien")
+const NoteApi = require("./routes/ien");
+const cors = require("cors");
 
 require("dotenv").config();
 require("./conn/conn");
 
+app.use(cors());
 app.use(express.json()); // express json key
 app.use(cookieParser());
 
