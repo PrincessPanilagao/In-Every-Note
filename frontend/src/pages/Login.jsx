@@ -23,7 +23,8 @@ const Login = () => {
     try {
       const res = await axios.post(
         "http://localhost:3000/api/v1/sign-in",
-        Values
+        Values,
+        { withCredentials: true } // access given for data to be accessed from frontend to backend & vice versa
       );
       console.log(res.data);
       // navigate to profile page once successful

@@ -8,7 +8,12 @@ const cors = require("cors");
 require("dotenv").config();
 require("./conn/conn");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5173"], // backend giving access to frontend origin 
+    credentials: true, // storing credentials from frontend to backend
+  })
+);
 app.use(express.json()); // express json key
 app.use(cookieParser());
 
