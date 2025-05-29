@@ -18,7 +18,7 @@ const Navbar = () => {
     {
       // About
       name: "ABOUT",
-      path: "/",
+      path: "/about",
     },
     {
       // Profile

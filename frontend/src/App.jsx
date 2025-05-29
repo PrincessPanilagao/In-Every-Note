@@ -2,10 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Import pages
 import MainLayout from "./layout/MainLayout";
-import AuthLayout from "./layout/AuthLayout"
+import AuthLayout from "./layout/AuthLayout";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import About from "./pages/About";
 
 import "./fonts.css";
 const App = () => {
@@ -18,6 +19,8 @@ const App = () => {
           {/* Main - home page */}
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
+            {/* About Page */}
+            <Route path="/about" element={<About />} />
           </Route>
           {/* Authentication - Signup & Login Page */}
           <Route path="/" element={<AuthLayout />}>
