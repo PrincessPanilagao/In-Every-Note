@@ -18,3 +18,12 @@ html, body, #root {
   font-size: 1rem;
   border-radius: 8px;
 }
+
+/* Browser input auto-fill color */
+input:-webkit-autofill {
+  background-color: #FFF2E9 !important;
+  color: #000 !important;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #000 !important;
+  font-family: 'Work Sans', sans-serif !important;
+}

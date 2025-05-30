@@ -14,10 +14,10 @@ const Navbar = () => {
 
   // Log out functionality - go back to home
   const LogOutHandler = async () => {
-    const res = await axios.post("http://localhost:3000/api/v1/logout", {
+    await axios.post("http://localhost:3000/api/v1/logout", {
       withCredentials: true,
     });
-    console.log(res);
+    // console.log(res);
     dispatch(authActions.logout());
     navigate("/");
   };
