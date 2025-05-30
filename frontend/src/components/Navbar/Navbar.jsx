@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
-// import { useState } from "react";
-
-// import logo from "/assets/logo.png"; // logo
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
   const [MobileNav, setMobileNav] = useState(false);
   // Menu links
   const navLinks = [
@@ -19,11 +19,6 @@ const Navbar = () => {
       // About
       name: "ABOUT",
       path: "/about",
-    },
-    {
-      // Profile
-      name: "PROFILE",
-      path: "/profile",
     },
   ];
 
@@ -61,26 +56,44 @@ const Navbar = () => {
 
         {/* Right Links: Signup, Login */}
         <div className="hidden w-2/6 lg:flex items-center justify-end">
-          <Link to="/login"
-            style={{
-              // backgroundColor: "#FCFAF9",
-              borderColor: "#262424",
-              borderWidth: "1.5px",
-            }}
-            className="font-worksans px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
-          >
-            LOG IN
-          </Link>
-          <Link to="/signup"
-            style={{
-              // backgroundColor: "#FCFAF9",
-              borderColor: "#262424",
-              borderWidth: "1.5px",
-            }}
-            className="font-worksans ms-4 px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
-          >
-            SIGN UP
-          </Link>
+          {/* Show signup and login when loggedin is false */}
+          {!isLoggedIn && (
+            <>
+              <Link
+                to="/login"
+                style={{
+                  borderColor: "#262424",
+                  borderWidth: "1.5px",
+                }}
+                className="font-worksans px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
+              >
+                LOG IN
+              </Link>
+              <Link
+                to="/signup"
+                style={{
+                  borderColor: "#262424",
+                  borderWidth: "1.5px",
+                }}
+                className="font-worksans ms-4 px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
+              >
+                SIGN UP
+              </Link>
+            </>
+          )}
+          {/* Shows Profile in Nav when logged in */}
+          {isLoggedIn && (
+            <Link
+              to="/profile"
+              style={{
+                borderColor: "#262424",
+                borderWidth: "1.5px",
+              }}
+              className="font-worksans ms-4 px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
+            >
+              Profile
+            </Link>
+          )}
         </div>
 
         {/*Hamburger button*/}

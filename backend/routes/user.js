@@ -111,10 +111,10 @@ router.post("/logout", async (req, res) => {
 router.get("/check-cookie", async (req, res) => {
   const token = req.cookies.ienUserToken;
   if (token) {
-    res.status(200).json({ message: true });
+    return res.status(200).json({ message: true });
   }
 
-  res.status(200).json({ message: false });
+  return res.status(200).json({ message: false });
 });
 
 // ROUTE TO FETCH USER DETAILS

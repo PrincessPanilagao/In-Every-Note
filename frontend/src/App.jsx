@@ -1,5 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { authActions } from "./store/auth";
 // Import pages
 import MainLayout from "./layout/MainLayout";
 import AuthLayout from "./layout/AuthLayout";
@@ -11,6 +15,24 @@ import Profile from "./pages/Profile";
 import "./fonts.css";
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:3000/api/v1/check-cookie",
+          { withCredentials: true }
+        );
+        if (res.data.message == true ) {
+          dispatch(authActions.login());
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetch();
+  }, []);
+
   return (
     // Background for entire site
     <div className="bg-[url('/src/assets/site-bg.png')] bg-no-repeat bg-center bg-cover min-h-screen w-full">

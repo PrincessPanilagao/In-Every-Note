@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store/auth";
 
 // ---LOGIN PAGE---
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   // Connecting sign-in page to backend - storing inputted values
   const [Values, setValues] = useState({
@@ -21,12 +24,13 @@ const Login = () => {
   const handleSubmit = async () => {
     // Connecting to sign-up API (user.js)
     try {
-      const res = await axios.post(
+      await axios.post(
         "http://localhost:3000/api/v1/sign-in",
         Values,
         { withCredentials: true } // access given for data to be accessed from frontend to backend & vice versa
       );
-      console.log(res.data);
+      dispatch(authActions.login()); // sets state to login (which is loggedin true)
+      // console.log(res.data);
       // navigate to profile page once successful
       navigate("/profile");
     } catch (error) {
