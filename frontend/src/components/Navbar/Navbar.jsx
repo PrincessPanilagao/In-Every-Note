@@ -93,6 +93,7 @@ const Navbar = () => {
             >
               Profile
             </Link>
+            
           )}
         </div>
 
