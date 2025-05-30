@@ -7,8 +7,9 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import About from "./pages/About";
-
+import Profile from "./pages/Profile";
 import "./fonts.css";
+
 const App = () => {
   return (
     // Background for entire site
@@ -21,6 +22,8 @@ const App = () => {
             <Route index element={<Home />} />
             {/* About Page */}
             <Route path="/about" element={<About />} />
+            {/* Profile  Page */}
+            <Route path="/profile" element={<Profile />} />
           </Route>
           {/* Authentication - Signup & Login Page */}
           <Route path="/" element={<AuthLayout />}>
