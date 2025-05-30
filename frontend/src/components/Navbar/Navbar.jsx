@@ -1,11 +1,26 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+import { authActions } from "../../store/auth";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Log out functionality - go back to home
+  const LogOutHandler = async () => {
+    const res = await axios.post("http://localhost:3000/api/v1/logout", {
+      withCredentials: true,
+    });
+    console.log(res);
+    dispatch(authActions.logout());
+    navigate("/");
+  };
 
   const [MobileNav, setMobileNav] = useState(false);
   // Menu links
@@ -28,17 +43,21 @@ const Navbar = () => {
       <div className="flex items-center justify-between">
         {/* Left Links: Home, About */}
         <div className="font-worksans hidden lg:flex flex-1 gap-4 ">
-          {navLinks.map((items, i) => (
+          {navLinks.map((item, i) => (
             <Link
               key={i}
-              to={items.path}
+              to={item.path}
               style={{
                 borderColor: "#262424",
-                borderWidth: "1.5px", // required for borderColor to apply
+                borderWidth: "1.5px",
               }}
-              className="ms-1 px-7 py-1 border rounded-full bg-[#FCFAF9] transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
+              className={`ms-1 px-7 py-1 border rounded-full font-worksans transition-all duration-300 ${
+                location.pathname === item.path
+                  ? "bg-[#9A2B2E] text-[#FCFAF9]"
+                  : "bg-[#FCFAF9] hover:bg-[#9A2B2E] hover:text-[#FCFAF9] transition-all"
+              }`}
             >
-              {items.name}
+              {item.name}
             </Link>
           ))}
         </div>
@@ -81,19 +100,37 @@ const Navbar = () => {
               </Link>
             </>
           )}
-          {/* Shows Profile in Nav when logged in */}
+          {/* Shows Profile & Log Out in Nav when logged in */}
           {isLoggedIn && (
-            <Link
-              to="/profile"
-              style={{
-                borderColor: "#262424",
-                borderWidth: "1.5px",
-              }}
-              className="font-worksans ms-4 px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
-            >
-              Profile
-            </Link>
-            
+            <>
+              {/* Profile Button */}
+              <Link
+                to="/profile"
+                style={{
+                  borderColor: "#262424",
+                  borderWidth: "1.5px",
+                }}
+                className={`ms-4 px-7 py-1 border rounded-full font-worksans transition-all duration-300 ${
+                  location.pathname === "/profile"
+                    ? "bg-[#9A2B2E] text-[#FCFAF9]"
+                    : "bg-[#FCFAF9] hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
+                }`}
+              >
+                PROFILE
+              </Link>
+
+              {/* Log Out Button */}
+              <Link
+                onClick={LogOutHandler} // Replace with your logout handler
+                style={{
+                  borderColor: "#262424",
+                  borderWidth: "1.5px",
+                }}
+                className="font-worksans ms-4 px-7 py-1 bg-[#FCFAF9] border rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
+              >
+                LOG OUT
+              </Link>
+            </>
           )}
         </div>
 
@@ -128,18 +165,21 @@ const Navbar = () => {
         </div>
         {/* Collapsable Menu */}
         <div className="h-full flex flex-col items-center justify-center z-[50]">
-          {navLinks.map((items, i) => (
+          {navLinks.map((item, i) => (
             <Link
               key={i}
-              to={items.path}
+              to={item.path}
               style={{
-                // backgroundColor: "#FCFAF9",
                 borderColor: "#262424",
-                borderWidth: "1px", // required for borderColor to apply
+                borderWidth: "1px",
               }}
-              className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+              className={`font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 ${
+                location.pathname === item.path
+                  ? "bg-[#9A2B2E] text-[#FCFAF9]"
+                  : "hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+              }`}
             >
-              {items.name}
+              {item.name}
             </Link>
           ))}
 
