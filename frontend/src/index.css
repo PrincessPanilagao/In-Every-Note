@@ -3,17 +3,21 @@
 @tailwind utilities;
 
 body {
-    padding: 0px;
+  padding: 0px;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: auto;
   /* overflow: hidden; */
 }
 
 .custom-toast {
-  background-color: #9A2B2E !important; /* Your custom bg */
-  color: #FCFAF9 !important;            /* Light text */
+  background-color: #9A2B2E !important;
+  /* Your custom bg */
+  color: #FCFAF9 !important;
+  /* Light text */
   font-family: 'Work Sans', sans-serif !important;
   font-size: 1rem;
   border-radius: 8px;

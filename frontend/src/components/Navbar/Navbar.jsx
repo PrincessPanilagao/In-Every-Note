@@ -66,9 +66,9 @@ const Navbar = () => {
         <div className="flex justify-center lg:flex-1">
           <Link to="/">
             <img
-              src="src/assets/logo.png"
+              src="src/assets/ien-logo.png"
               alt="In Every Note Logo"
-              className="w-10 sm:w-12 md:w-14 h-auto"
+              className="w-11 sm:w-12 md:w-14 h-auto"
             />
           </Link>
         </div>
