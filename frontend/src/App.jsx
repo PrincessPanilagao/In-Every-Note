@@ -12,6 +12,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
+import AddNote from "./pages/AddNote";
 import "./fonts.css";
 
 const App = () => {
@@ -23,7 +24,7 @@ const App = () => {
           "http://localhost:3000/api/v1/check-cookie",
           { withCredentials: true }
         );
-        if (res.data.message == true ) {
+        if (res.data.message == true) {
           dispatch(authActions.login());
         }
       } catch (error) {
@@ -46,6 +47,8 @@ const App = () => {
             <Route path="/about" element={<About />} />
             {/* Profile  Page */}
             <Route path="/profile" element={<Profile />} />
+            {/* Add Notes Page */}
+            <Route path="/add-note" element={<AddNote />} />
           </Route>
           {/* Authentication - Signup & Login Page */}
           <Route path="/" element={<AuthLayout />}>

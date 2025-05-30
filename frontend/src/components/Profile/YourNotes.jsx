@@ -16,7 +16,7 @@ const YourNotes = () => {
             <h1 className="text-xl font-worksans font-semibold text-[#262424] md:font-bold"><i>Your Notes</i></h1>
           </div>
         </div>
-        <Link to="/add-podcast" className="font-worksans font-medium px-10 py-2 bg-[#740F03] text-[#FCFAF9] border-2 border-[#262424] rounded-full duration-300 hover:bg-[#F8F2ED] hover:text-[#262424]">
+        <Link to="/add-note" className="font-worksans font-medium px-10 py-2 bg-[#740F03] text-[#FCFAF9] border-2 border-[#262424] rounded-full duration-300 hover:bg-[#F8F2ED] hover:text-[#262424]">
           <i>SEND A NOTE</i>
         </Link>
       </div>
