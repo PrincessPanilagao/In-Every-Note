@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+// ---PROFILE HEADER---
 const Header = () => {
   const [UserData, setUserData] = useState();
 
@@ -24,20 +25,23 @@ const Header = () => {
           <div className="flex flex-col items-center justify-center">
             <Link
               to="/Profile"
-              className="mt-9 text-5xl sm:text-7xl md:text-7xl lg:text-7xl text-[#9A2B2E] font-taprom"
+              className="mt-9 -mb-12 text-5xl sm:text-7xl md:text-6xl lg:text-7xl text-[#9A2B2E] font-taprom"
             >
               Profile
             </Link>
 
-            {/* Header - cover image */}
-            <div className="-mt-40 md:-mt-56 lg:-mt-36 bg-[url('/src/assets/header-bg-mobile.png')] md:bg-[url('/src/assets/header-bg.png')] bg-no-repeat bg-center bg-contain min-h-screen w-screen flex flex-col md:flex-row items-center justify-center gap-4 md:justify-between md:pl-[10%]">
-              <div className="flex flex-col items-start md:items-start ml-[-29%] md:ml-[0%]">
+            {/* Header Frame */}
+            <div className="w-full relative flex justify-center">
+              {/* Responsive background container */}
+              <div
+                className="w-full sm:w-[85%] lg:w-[90%] min-h-[40vh] sm:min-h-[50vh] lg:min-h-[60vh] bg-no-repeat bg-center bg-contain bg-[url('/src/assets/header-bg-mobile.png')] sm:bg-[url('/src/assets/header-bg.png')] select-none transition-opacity duration-300 flex flex-col items-start justify-center px-6 sm:px-12 py-10 sm:py-16 gap-2"
+              >
                 {/* Username display */}
-                <h1 className="text-2xl md:text-3xl lg:text-4xl text-[#FCFAF9] font-bold font-worksans sm:text-left">
+                <h1 className="ml-12 sm:mr-12 text-2xl md:text-3xl lg:text-4xl text-[#FCFAF9] font-bold font-worksans sm:text-left">
                   Welcome, {UserData.username}!
                 </h1>
                 {/* Email display */}
-                <p className="text-[#FCFAF9] font-worksans font-light mt-1">
+                <p className="ml-14 sm:mr-12 text-[#FCFAF9] font-worksans font-light mt-1 sm:text-left">
                   {UserData.email}
                 </p>
               </div>
@@ -48,4 +52,5 @@ const Header = () => {
     </>
   );
 };
+
 export default Header;
