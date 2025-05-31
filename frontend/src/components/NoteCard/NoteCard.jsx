@@ -1,10 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { playerActions } from "../../store/player";
 
 const NoteCard = ({ items }) => {
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  // Playing Audio and showing image
+  const handlePlay = (e) => {
+    if (isLoggedIn) {
+      e.preventDefault();
+      dispatch(playerActions.setDiv());
+      dispatch(
+        playerActions.changeImage(`http://localhost:3000/${items.frontImage}`)
+      );
+      dispatch(
+        playerActions.changeSong(`http://localhost:3000/${items.audioFile}`)
+      );
+    }
+  };
+
   return (
     <div>
       <Link to={`/description/${items._id}`} className="mt-5 p-4 flex flex-col">
@@ -32,7 +49,10 @@ const NoteCard = ({ items }) => {
           </div>
 
           {/* Play Music */}
-          <div className="flex flex-row gap-2 text-sm items-center justify-center mt-5 font-medium px-1 py-2 bg-[#F8F2ED] text-[#262424] rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]">
+          <div
+            className="flex flex-row gap-2 text-sm items-center justify-center mt-5 font-medium px-1 py-2 bg-[#F8F2ED] text-[#262424] rounded-full duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
+            onClick={handlePlay}
+          >
             <Link to={isLoggedIn ? "#" : "/signup"}>Listen</Link>
             <FaPlay />
           </div>

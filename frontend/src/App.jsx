@@ -16,6 +16,7 @@ import AddNote from "./pages/AddNote";
 import AllNotes from "./pages/AllNotes";
 
 import "./fonts.css";
+import DescriptionPage from "./pages/DescriptionPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ const App = () => {
             {/* All Notes Page */}
             <Route path="/all-notes" element={<AllNotes />} />
             {/* Description Page */}
-            <Route path="/all-notes" element={<AllNotes />} />
+            <Route path="/description/:id" element={<DescriptionPage />} />
           </Route>
           {/* Authentication - Signup & Login Page */}
           <Route path="/" element={<AuthLayout />}>
