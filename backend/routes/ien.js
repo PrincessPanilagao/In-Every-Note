@@ -37,9 +37,9 @@ router.post("/add-note", authMiddleware, upload, async (req, res) => {
 // Get all notes
 router.get("/get-notes", async (req, res) => {
   try {
-    const notes = await notes.find().sort({ createdAt: -1 });
+    const allnotes = await notes.find().sort({ createdAt: -1 });
     // have recent upload on top
-    return res.status(200).json({ data: notes });
+    return res.status(200).json({ data: allnotes });
   } catch (error) {
     return res.status(500).json({ message: "Internal server error" });
   }
@@ -64,8 +64,8 @@ router.get("/get-user-notes", authMiddleware, async (req, res) => {
   }
 });
 
-// get podcast by id
-router.get("/get-podcast/:id", async (req, res) => {
+// get note by id
+router.get("/get-note/:id", async (req, res) => {
   try {
     const {id} = req.params;
     const notes = await notes.findById(id);

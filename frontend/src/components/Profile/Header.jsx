@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 // ---PROFILE HEADER---
@@ -23,12 +22,11 @@ const Header = () => {
         <div>
           {/* Profile title */}
           <div className="flex flex-col items-center justify-center">
-            <Link
-              to="/Profile"
+            <h1
               className="mt-9 -mb-12 text-5xl sm:text-7xl md:text-6xl lg:text-7xl text-[#9A2B2E] font-taprom"
             >
               Profile
-            </Link>
+            </h1>
 
             {/* Header Frame */}
             <div className="w-full relative flex justify-center">

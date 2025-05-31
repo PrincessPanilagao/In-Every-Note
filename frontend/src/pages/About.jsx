@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 // ---ABOUT PAGE---
 const About = () => {
@@ -7,12 +6,11 @@ const About = () => {
     <div className="flex flex-col items-center justify-center">
       {/* About title */}
       <div className="flex flex-col items-center justify-center">
-        <Link
-          to="/"
+        <h1
           className="mt-9 text-5xl sm:text-7xl md:text-7xl lg:text-7xl text-[#9A2B2E] font-taprom"
         >
           About
-        </Link>
+        </h1>
       </div>
 
       {/* About Frame */}

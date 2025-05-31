@@ -35,6 +35,14 @@ const Navbar = () => {
       name: "ABOUT",
       path: "/about",
     },
+
+    {
+      // All Notes
+      name: "NOTES",
+      path: "/all-notes",
+    },
+
+    
   ];
 
   return (

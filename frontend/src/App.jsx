@@ -13,6 +13,8 @@ import Login from "./pages/Login";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
 import AddNote from "./pages/AddNote";
+import AllNotes from "./pages/AllNotes";
+
 import "./fonts.css";
 
 const App = () => {
@@ -49,6 +51,10 @@ const App = () => {
             <Route path="/profile" element={<Profile />} />
             {/* Add Notes Page */}
             <Route path="/add-note" element={<AddNote />} />
+            {/* All Notes Page */}
+            <Route path="/all-notes" element={<AllNotes />} />
+            {/* Description Page */}
+            <Route path="/all-notes" element={<AllNotes />} />
           </Route>
           {/* Authentication - Signup & Login Page */}
           <Route path="/" element={<AuthLayout />}>

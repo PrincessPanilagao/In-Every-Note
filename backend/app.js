@@ -16,9 +16,11 @@ app.use(
 );
 app.use(express.json()); // express json key
 app.use(cookieParser());
+app.use("/uploads", express.static("uploads"));
 
-app.use("/api/v1", userApi); // all routes
-app.use("/api/v1", NoteApi); // all routes
+// all routes
+app.use("/api/v1", userApi);
+app.use("/api/v1", NoteApi);
 
 app.listen(process.env.PORT, () => {
   // takes Port number directly from env file
