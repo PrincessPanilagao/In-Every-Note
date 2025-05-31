@@ -3,6 +3,40 @@ import { FaStar } from "react-icons/fa";
 
 // ---INPUT NOTE FUNCTIONALITY---
 const InputNote = () => {
+  const [frontImage, setfrontImage] = useState(null);
+  const [Dragging, setDragging] = useState(false);
+
+  // Function for changing front image upon upload
+  const handleChangeImage = (e) => {
+    const file = e.target.files[0];
+    setfrontImage(file);
+  };
+
+  // Function for handling dragging front image to upload
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+    setDragging(true);
+  };
+
+  // Function when dragging is done
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  // Function when dragging leaves the target square
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    setDragging(false);
+  };
+
+  // Function for when image is dropped
+  const handleDropImage = (e) => {
+    e.preventDefault();
+    setDragging(false);
+    const file = e.dataTransfer.files[0];
+    setfrontImage(file);
+  };
+
   const [message, setMessage] = useState("");
   return (
     <div className="px-4 lg:px-12 pt-4 pb-12 min-h-screen box-border overflow-hidden">
@@ -28,6 +62,10 @@ const InputNote = () => {
           <div
             className="w-[14rem] h-[14rem] lg:w-[22rem] lg:h-[22rem] flex items-center justify-center bg-[#F8F2ED] hover:bg-[#FFF2E9] transition-all duration-300"
             style={{ border: "3px dashed #262424" }}
+            onDragEnter={handleDragEnter} // be able to drag an image to the upload sect
+            onDragLeave={handleDragLeave} // when leaving the drop target
+            onDragOver={handleDragOver} // when dragging stops
+            onDrop={handleDropImage} // Changing front image when dropped
           >
             <input
               type="file"
@@ -35,15 +73,29 @@ const InputNote = () => {
               id="file"
               name="frontImage"
               className="hidden"
+              onChange={handleChangeImage} // changes image when uploaded
             />
-            <label
-              htmlFor="file"
-              className="font-worksans font-regular text-base h-[100%] w-[100%] hover:cursor-pointer flex items-center justify-center px-8"
-            >
-              <div className="text-center">
-                Drag and drop an image or click to browse
-              </div>
-            </label>
+            {/* Display uploaded front image or else text cta */}
+            {frontImage ? (
+              <img
+                src={URL.createObjectURL(frontImage)}
+                alt="thumbnail"
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <>
+                <label
+                  htmlFor="file"
+                  className={`font-worksans font-regular text-base h-[100%] w-[100%] hover:cursor-pointer flex items-center justify-center px-8 ${
+                    Dragging ? "bg-[#FFF2E9]" : ""
+                  }`}
+                >
+                  <div className="text-center">
+                    Drag and drop an image or click to browse
+                  </div>
+                </label>
+              </>
+            )}
           </div>
         </div>
 
@@ -77,9 +129,9 @@ const InputNote = () => {
               type="text"
               id="message"
               name="message"
-              maxLength={300}
+              maxLength={300} // max length
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={(e) => setMessage(e.target.value)} // counter change (no./100 characters)
               placeholder="Write your message here"
               className="placeholder:text-sm font-worksans mt-2 px-4 py-2 outline-none border-2 border-[#262424] bg-[#F8F2ED] rounded focus:bg-[#FFF2E9]"
               rows={4}
