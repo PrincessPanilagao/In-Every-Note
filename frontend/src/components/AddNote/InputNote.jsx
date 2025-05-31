@@ -4,7 +4,9 @@ import { FaStar } from "react-icons/fa";
 // ---INPUT NOTE FUNCTIONALITY---
 const InputNote = () => {
   const [frontImage, setfrontImage] = useState(null);
+  const [audioFile, setaudioFile] = useState(null);
   const [Dragging, setDragging] = useState(false);
+  const [Inputs, setInputs] = useState({ recipient: "", message: "" });
 
   // Function for changing front image upon upload
   const handleChangeImage = (e) => {
@@ -37,7 +39,25 @@ const InputNote = () => {
     setfrontImage(file);
   };
 
-  const [message, setMessage] = useState("");
+  // Function for handling the audio files
+  const handleAudioFile = (e) => {
+    e.preventDefault();
+    const file = e.target.files[0];
+    setaudioFile(file);
+  };
+
+  // Function for changing inputs (recipient & message)
+  const onChangeInput = (e) => {
+    const { name, value } = e.target;
+    setInputs((prev) => ({ ...prev, [name]: value })); // onChange={(e) => setMessage(e.target.value)} // counter change (no./100 characters)
+    setInputs({ ...Inputs, [name]: value });
+  };
+
+  // Function for Submitting Note
+  const handleSubmitNote = async () => {
+    console.log(Inputs, frontImage, audioFile)
+  };
+
   return (
     <div className="px-4 lg:px-12 pt-4 pb-12 min-h-screen box-border overflow-hidden">
       {/* Send A Note title */}
@@ -114,6 +134,8 @@ const InputNote = () => {
               name="recipient"
               placeholder="Enter recipient’s name"
               className="placeholder:text-sm font-worksans mt-2 px-4 py-2 outline-none border-2 border-[#262424] bg-[#F8F2ED] rounded focus:bg-[#FFF2E9]"
+              value={Inputs.recipient}
+              onChange={onChangeInput}
             />
           </div>
 
@@ -130,14 +152,14 @@ const InputNote = () => {
               id="message"
               name="message"
               maxLength={300} // max length
-              value={message}
-              onChange={(e) => setMessage(e.target.value)} // counter change (no./100 characters)
               placeholder="Write your message here"
               className="placeholder:text-sm font-worksans mt-2 px-4 py-2 outline-none border-2 border-[#262424] bg-[#F8F2ED] rounded focus:bg-[#FFF2E9]"
               rows={4}
+              value={Inputs.message}
+              onChange={onChangeInput}
             />
             <div className="text-right text-sm text-[#262424] mt-1 font-worksans">
-              {message.length}/300 characters
+              {Inputs.message.length}/300 characters
             </div>
           </div>
 
@@ -151,8 +173,12 @@ const InputNote = () => {
               className="font-worksans mt-2 px-4 py-2 outline-none border-2 border-[#262424] bg-[#F8F2ED] text-[#A8A3AF] rounded hover:bg-[#FFF2E9]"
             >
               <div className="flex flex-row items-center justify-between text-sm">
-                <p>Accepted file types: .mp3, .wav, .m4a, .ogg</p>
-                <FaStar />
+                <p className={audioFile ? "text-[#9A2B2E]" : "text-[#A8A3AF]"}>
+                  {audioFile
+                    ? audioFile.name
+                    : "Accepted file types: .mp3, .wav, .m4a, .ogg"}
+                </p>
+                <FaStar color={audioFile ? "#9A2B2E" : "#A8A3AF"} />
               </div>
             </label>
             <input
@@ -160,14 +186,17 @@ const InputNote = () => {
               accept=".mp3, .wav, .m4a, .ogg"
               id="audioFile"
               name="audioFile"
-              className="hidden font-worksans mt-2 px-4 py-2 outline-none border-2 border-[#262424] bg-[#F8F2ED] rounded focus:bg-[#FFF2E9]"
-              rows={4}
+              className="hidden"
+              onChange={handleAudioFile}
             />
           </div>
 
           {/* Send Note Button */}
           <div className="mt-8 lg:mt-8 flex justify-center">
-            <button className="font-worksans font-medium px-8 py-2 bg-[#9A2B2E] text-[#FCFAF9] border-2 border-[#262424] rounded-full duration-300">
+            <button
+              className="font-worksans font-medium px-8 py-2 bg-[#9A2B2E] text-[#FCFAF9] border-2 border-[#262424] hover:bg-[#740F03] rounded-full duration-300"
+              onClick={handleSubmitNote}
+            >
               SEND NOTE
             </button>
           </div>
