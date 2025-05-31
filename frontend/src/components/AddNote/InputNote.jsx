@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 
 // ---INPUT NOTE FUNCTIONALITY---
 const InputNote = () => {
@@ -53,13 +55,43 @@ const InputNote = () => {
     setInputs({ ...Inputs, [name]: value });
   };
 
-  // Function for Submitting Note
+  // Function for Submitting Note -> Connecting to API
   const handleSubmitNote = async () => {
-    console.log(Inputs, frontImage, audioFile)
+    // console.log(Inputs, frontImage, audioFile);
+    const data = new FormData();
+    data.append("recipient", Inputs.recipient);
+    data.append("message", Inputs.message);
+    data.append("frontImage", frontImage);
+    data.append("audioFile", audioFile);
+    try { // connect contents to API
+      const res = await axios.post(
+        "http://localhost:3000/api/v1/add-note",
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      );
+      toast.success(res.data.message);
+    } catch (error) { // show error message
+      toast.error(error.response.data.message);
+    } finally { // clear all fields once submitted
+      setInputs({ recipient: "", message: "" });
+      setfrontImage(null);
+      setaudioFile(null);
+    }
   };
 
   return (
     <div className="px-4 lg:px-12 pt-4 pb-12 min-h-screen box-border overflow-hidden">
+      <ToastContainer
+        position="top-right"
+        draggable
+        theme="colored"
+        toastClassName="custom-toast"
+      />
       {/* Send A Note title */}
       <div className="flex flex-col items-center justify-center">
         <h1 className="mt-9 text-5xl sm:text-7xl md:text-7xl lg:text-7xl text-[#9A2B2E] font-taprom">

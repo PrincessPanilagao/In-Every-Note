@@ -7,7 +7,7 @@ const router = require("express").Router();
 // Add Note
 router.post("/add-note", authMiddleware, upload, async (req, res) => {
   try {
-    const { title, description, category } = req.body; // Extract form fields
+    const { recipient, message } = req.body; // Extract form fields
     const frontImage = req.files["frontImage"][0].path; // Uploaded front image path
     const audioFile = req.files["audioFile"][0].path; // Uploaded audio file path
 
