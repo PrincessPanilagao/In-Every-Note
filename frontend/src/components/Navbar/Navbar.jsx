@@ -41,8 +41,6 @@ const Navbar = () => {
       name: "NOTES",
       path: "/all-notes",
     },
-
-    
   ];
 
   return (
@@ -191,30 +189,46 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/*Login*/}
-          <Link
-            to="/login"
-            style={{
-              // backgroundColor: "#FCFAF9",
-              borderColor: "#262424",
-              borderWidth: "1px", // required for borderColor to apply
-            }}
-            className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
-          >
-            LOG IN
-          </Link>
-          {/*Signup*/}
-          <Link
-            to="/signup"
-            style={{
-              // backgroundColor: "#FCFAF9",
-              borderColor: "#262424",
-              borderWidth: "1px", // required for borderColor to apply
-            }}
-            className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
-          >
-            SIGN UP
-          </Link>
+          {!isLoggedIn ? (
+            <>
+              {/*Login*/}
+              <Link
+                to="/login"
+                style={{
+                  // backgroundColor: "#FCFAF9",
+                  borderColor: "#262424",
+                  borderWidth: "1px", // required for borderColor to apply
+                }}
+                className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+              >
+                LOG IN
+              </Link>
+              {/*Signup*/}
+              <Link
+                to="/signup"
+                style={{
+                  // backgroundColor: "#FCFAF9",
+                  borderColor: "#262424",
+                  borderWidth: "1px", // required for borderColor to apply
+                }}
+                className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+              >
+                SIGN UP
+              </Link>
+            </>
+          ) : (
+            <Link
+              to="/profile"
+              style={{
+                // backgroundColor: "#FCFAF9",
+                borderColor: "#262424",
+                borderWidth: "1px", // required for borderColor to apply
+              }}
+              className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
+            >
+              PROFILE
+            </Link>
+          )}
         </div>
       </div>
     </nav>
