@@ -38,7 +38,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="px-4 md:px-8 lg:px-12 py-2 relative">
+    <nav className="px-4 md:px-8 lg:px-12 py-5 relative">
       {/* Navbar for Laptop */}
       <div className="flex items-center justify-between">
         {/* Left Links: Home, About */}

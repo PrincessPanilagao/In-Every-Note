@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const YourNotes = () => {
   return (
-    <div className="px-4 lg:px-12 my-4">
+    <div className="px-4 lg:px-12 pt-4 pb-12 min-h-screen box-border overflow-hidden">
       <div className="flex items-center justify-between gap-4">
         <div>
           <div className="flex flex-row items-center justify-center gap-2">
