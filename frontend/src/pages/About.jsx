@@ -1,4 +1,5 @@
 import React from "react";
+import aboutbg from '../assets/about-frame-mobile.png';
 
 // ---ABOUT PAGE---
 const About = () => {
@@ -17,7 +18,7 @@ const About = () => {
       <div className="w-full lg:-mt-4 sm:-mt-17 md:-mt-6 mb-12 relative flex justify-center">
         {/* Mobile image (sm and below) */}
         <img
-          src="/assets/about-frame-mobile.png"
+          src={aboutbg}
           alt="About Frame Mobile"
           className="block sm:hidden w-[100%] h-auto select-none transition-opacity duration-300"
           draggable="false"
@@ -25,7 +26,7 @@ const About = () => {
 
         {/* Tablet and larger */}
         <img
-          src="/assets/about-frame.png"
+          src="/src/assets/about-frame.png"
           alt="About Frame"
           className="hidden sm:block sm:w-[80%] md:w-[100%] lg:w-[85%] h-auto select-none transition-opacity duration-300"
           draggable="false"
