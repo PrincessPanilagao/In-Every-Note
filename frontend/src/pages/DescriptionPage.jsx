@@ -20,10 +20,10 @@ const DescriptionPage = () => {
     e.preventDefault();
     dispatch(playerActions.setDiv());
     dispatch(
-      playerActions.changeImage(`http://localhost:3000/${note.frontImage}`)
+      playerActions.changeImage(`https://in-every-note-backend.onrender.com/${note.frontImage}`)
     );
     dispatch(
-      playerActions.changeSong(`http://localhost:3000/${note.audioFile}`)
+      playerActions.changeSong(`https://in-every-note-backend.onrender.com/${note.audioFile}`)
     );
   };
 
@@ -32,7 +32,7 @@ const DescriptionPage = () => {
     const fetchNote = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/v1/get-note/${id}`,
+          `https://in-every-note-backend.onrender.com/api/v1/get-note/${id}`,
           { withCredentials: true }
         );
         setNote(res.data.data);
@@ -57,7 +57,7 @@ const DescriptionPage = () => {
         {/* Note image and vinyl */}
         <div className="relative w-full mt-8 mb-8 md:mb-11 lg:mb-0 flex items-center justify-center md:justify-start md:items-start">
           <img
-            src={`http://localhost:3000/${note.frontImage}`}
+            src={`https://in-every-note-backend.onrender.com/${note.frontImage}`}
             className="size-[34vh] md:size-[40vh] lg:size-[45vh] object-cover shadow-[0_4px_10px_rgba(38,36,36,0.7)] -rotate-3"
           />
           <img

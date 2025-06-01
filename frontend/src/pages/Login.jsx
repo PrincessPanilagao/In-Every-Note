@@ -29,7 +29,7 @@ const Login = () => {
     // Connecting to sign-up API (user.js)
     try {
       await axios.post(
-        "http://localhost:3000/api/v1/sign-in",
+        "hhttps://in-every-note-backend.onrender.com/api/v1/sign-in",
         Values,
         { withCredentials: true } // access given for data to be accessed from frontend to backend & vice versa
       );

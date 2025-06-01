@@ -65,7 +65,7 @@ const InputNote = () => {
     data.append("audioFile", audioFile);
     try { // connect contents to API
       const res = await axios.post(
-        "http://localhost:3000/api/v1/add-note",
+        "https://in-every-note-backend.onrender.com/api/v1/add-note",
         data,
         {
           headers: {

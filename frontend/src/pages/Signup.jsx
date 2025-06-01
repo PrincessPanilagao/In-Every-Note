@@ -29,7 +29,7 @@ const Signup = () => {
     // Connecting to sign-up API (user.js)
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/sign-up",
+        "https://in-every-note-backend.onrender.com/api/v1/sign-up",
         Values
       );
       // Showing data message success alert

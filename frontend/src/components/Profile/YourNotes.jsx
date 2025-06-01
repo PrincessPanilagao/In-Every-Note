@@ -8,7 +8,7 @@ const YourNotes = () => {
   useEffect(() => {
     const fetchNotes = async () => {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/get-user-notes",
+        "https://in-every-note-backend.onrender.com/api/v1/get-user-notes",
         { withCredentials: true }
       );
       setNotes(res.data.data);

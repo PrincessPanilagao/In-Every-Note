@@ -14,7 +14,7 @@ const Navbar = () => {
 
   // Log out functionality - go back to home
   const LogOutHandler = async () => {
-    await axios.post("http://localhost:3000/api/v1/logout", {
+    await axios.post("https://in-every-note-backend.onrender.com/api/v1/logout", {
       withCredentials: true,
     });
     // console.log(res);

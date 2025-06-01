@@ -14,10 +14,10 @@ const NoteCard = ({ items }) => {
       e.preventDefault();
       dispatch(playerActions.setDiv());
       dispatch(
-        playerActions.changeImage(`http://localhost:3000/${items.frontImage}`)
+        playerActions.changeImage(`https://in-every-note-backend.onrender.com/${items.frontImage}`)
       );
       dispatch(
-        playerActions.changeSong(`http://localhost:3000/${items.audioFile}`)
+        playerActions.changeSong(`https://in-every-note-backend.onrender.com/${items.audioFile}`)
       );
     }
   };
@@ -28,7 +28,7 @@ const NoteCard = ({ items }) => {
         {/* Image & Vinyl Cover display */}
         <div className="flex items-center object-cover">
           <img
-            src={`http://localhost:3000/${items.frontImage}`}
+            src={`https://in-every-note-backend.onrender.com/${items.frontImage}`}
             className="size-[38vh] border-2 border-[#262424] object-cover shadow-[0_4px_10px_rgba(38,36,36,0.7)] shadow-xl hover:shadow-lg transition-all duration-300"
           />
           <img

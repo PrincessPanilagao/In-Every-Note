@@ -6,7 +6,7 @@ const AllNotes = () => {
   const [Notes, setNotes] = useState();
   useEffect(() => {
     const fetchNotes = async () => {
-      const res = await axios.get("http://localhost:3000/api/v1/get-notes");
+      const res = await axios.get("https://in-every-note-backend.onrender.com/api/v1/get-notes");
       setNotes(res.data.data);
     };
     fetchNotes();

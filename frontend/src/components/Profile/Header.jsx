@@ -8,7 +8,7 @@ const Header = () => {
   // Fetching inputted user data
   useEffect(() => {
     const fetchUserDetails = async () => {
-      const res = await axios.get("http://localhost:3000/api/v1/user-details", {
+      const res = await axios.get("https://in-every-note-backend.onrender.com/api/v1/user-details", {
         withCredentials: true,
       });
       setUserData(res.data.user);
