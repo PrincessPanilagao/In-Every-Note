@@ -24,7 +24,7 @@ const AllNotes = () => {
       </div>
 
       {/* Show Notes */}
-      <div className="w-full px-4 lg:px-12 py-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-7">
+      <div className="w-full px-4 lg:px-12 py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {Notes &&
           Notes.map((items, i) => (
             <div key={i}>

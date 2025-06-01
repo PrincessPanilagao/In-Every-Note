@@ -23,7 +23,7 @@ const Header = () => {
           {/* Profile title */}
           <div className="flex flex-col items-center justify-center">
             <h1
-              className="mt-9 -mb-12 text-5xl sm:text-7xl md:text-6xl lg:text-7xl text-[#9A2B2E] font-taprom"
+              className="mt-9 -mb-3 md:-mb-12 lg:-mb-12 text-5xl sm:text-7xl md:text-6xl lg:text-7xl text-[#9A2B2E] font-taprom"
             >
               Profile
             </h1>
@@ -32,14 +32,14 @@ const Header = () => {
             <div className="w-full relative flex justify-center">
               {/* Responsive background container */}
               <div
-                className="w-full sm:w-[85%] lg:w-[90%] min-h-[40vh] sm:min-h-[50vh] lg:min-h-[60vh] bg-no-repeat bg-center bg-contain bg-[url('/src/assets/header-bg-mobile.png')] sm:bg-[url('/src/assets/header-bg.png')] select-none transition-opacity duration-300 flex flex-col items-start justify-center px-6 sm:px-12 py-10 sm:py-16 gap-2"
+                className="w-full md:w-[95%] lg:w-[90%] min-h-[40vh] sm:min-h-[50vh] lg:min-h-[60vh] bg-no-repeat bg-center bg-contain bg-[url('/src/assets/header-bg-mobile-1.png')] sm:bg-[url('/src/assets/header-bg.png')] select-none transition-opacity duration-300 flex flex-col items-start justify-center px-6 sm:px-12 py-10 sm:py-16 gap-2"
               >
                 {/* Username display */}
-                <h1 className="ml-12 sm:mr-12 text-2xl md:text-3xl lg:text-4xl text-[#FCFAF9] font-bold font-worksans sm:text-left">
+                <h1 className="ml-13 md:ml-12 lg:ml-12 sm:mr-12 text-2xl md:text-3xl lg:text-4xl text-[#FCFAF9] font-bold font-worksans sm:text-left">
                   Welcome, {UserData.username}!
                 </h1>
                 {/* Email display */}
-                <p className="ml-14 sm:mr-12 text-[#FCFAF9] font-worksans font-light mt-1 sm:text-left">
+                <p className="ml-13 md:ml-14 lg:ml-14 sm:mr-12 text-[#FCFAF9] font-worksans font-light mt-1 sm:text-left">
                   {UserData.email}
                 </p>
               </div>

@@ -49,20 +49,20 @@ const DescriptionPage = () => {
   }
 
   return (
-    <div className="mt-7 px-4 lg:px-12 py-4 h-auto flex flex-col md:flex-row items-center justify-center gap-4">
+    <div className="mt-7 px-4 lg:px-12 py-4 h-auto flex flex-col md:flex-col lg:flex-row items-center justify-center gap-4">
       <div>
         {/* Recipient heading */}
         <div className="text-5xl text-[#9A2B2E] font-taprom -rotate-3">{`To: ${note.recipient}`}</div>
 
         {/* Note image and vinyl */}
-        <div className="relative w-full mt-8 flex items-center justify-center md:justify-start md:items-start">
+        <div className="relative w-full mt-8 mb-8 md:mb-11 lg:mb-0 flex items-center justify-center md:justify-start md:items-start">
           <img
             src={`http://localhost:3000/${note.frontImage}`}
-            className="size-[48vh] object-cover shadow-[0_4px_10px_rgba(38,36,36,0.7)] -rotate-3"
+            className="size-[34vh] md:size-[40vh] lg:size-[45vh] object-cover shadow-[0_4px_10px_rgba(38,36,36,0.7)] -rotate-3"
           />
           <img
             src="/src/assets/vinyl.png"
-            className="h-[45vh] object-contain -rotate-3"
+            className="h-[30vh] md:h-[35vh] lg:h-[42vh] object-contain -rotate-3"
             draggable="false"
           />
         </div>

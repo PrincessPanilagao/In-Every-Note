@@ -217,17 +217,30 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <Link
-              to="/profile"
-              style={{
-                // backgroundColor: "#FCFAF9",
-                borderColor: "#262424",
-                borderWidth: "1px", // required for borderColor to apply
-              }}
-              className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9] hover:font-semibold"
-            >
-              PROFILE
-            </Link>
+            <>
+              <Link
+                to="/profile"
+                style={{
+                  // backgroundColor: "#FCFAF9",
+                  borderColor: "#262424",
+                  borderWidth: "1px", // required for borderColor to apply
+                }}
+                className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
+              >
+                PROFILE
+              </Link>
+              {/* Log Out Button */}
+              <Link
+                onClick={LogOutHandler} // Replace with your logout handler
+                style={{
+                  borderColor: "#262424",
+                  borderWidth: "1px",
+                }}
+                className="font-worksans mb-8 text-2xl px-7 py-3 border rounded-full transition-all duration-300 hover:bg-[#9A2B2E] hover:text-[#FCFAF9]"
+              >
+                LOG OUT
+              </Link>
+            </>
           )}
         </div>
       </div>

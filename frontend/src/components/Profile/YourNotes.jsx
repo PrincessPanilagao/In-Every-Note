@@ -18,7 +18,7 @@ const YourNotes = () => {
 
   return (
     <div className="px-4 lg:px-12 pt-4 pb-12 min-h-screen box-border overflow-hidden">
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-col md:flex-row lg:flex-row items-center justify-between gap-4">
         <div>
           <div className="flex flex-row items-center justify-center gap-2">
             {/* Asterisk image */}
@@ -42,7 +42,7 @@ const YourNotes = () => {
       </div>
 
       {/* Show Notes */}
-      <div className="w-full px-4 py-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-7">
+      <div className="w-full px-4 py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {Notes &&
           Notes.map((items, i) => (
             <div key={i}>
