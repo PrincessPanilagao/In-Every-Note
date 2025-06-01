@@ -10,7 +10,7 @@ require("./conn/conn");
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"], // backend giving access to frontend origin 
+    origin: ["https://in-every-note-frontend.onrender.com"], // backend giving access to frontend origin - http://localhost:5173
     credentials: true, // storing credentials from frontend to backend
   })
 );
