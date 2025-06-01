@@ -1,6 +1,6 @@
 import React from "react";
-import aboutbgmobile from './src/assets/about-frame-mobile.png';
-import aboutbgbig from './src/assets/about-frame.png';
+import aboutbgmobile from '../assets/about-frame-mobile.png';
+import aboutbgbig from '../assets/about-frame.png';
 
 // ---ABOUT PAGE---
 const About = () => {
