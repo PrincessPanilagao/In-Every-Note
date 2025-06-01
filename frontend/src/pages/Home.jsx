@@ -1,12 +1,27 @@
 import React, { useState, useEffect } from "react";
 
 const Home = () => {
-  const desktopImages = ["/assets/cover-image.png", "/assets/cover-image-2.png"];
-  const mobileImages = ["/assets/cover-image-mbl.png", "/assets/cover-image-mbl-2.png"];
+  const desktopImages = [
+    "/assets/cover-image.png",
+    "/assets/cover-image-2.png",
+  ];
+  const mobileImages = [
+    "/assets/cover-image-mbl.png",
+    "/assets/cover-image-mbl-2.png",
+  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Preload both desktop and mobile images
+  useEffect(() => {
+    const imagesToPreload = [...desktopImages, ...mobileImages];
+    imagesToPreload.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+  
   // Detect mobile screen width
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
