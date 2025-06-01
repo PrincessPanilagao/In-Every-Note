@@ -107,7 +107,7 @@ const InputNote = () => {
           style={{
             paddingTop: "9%",
             paddingBottom: "9%",
-            backgroundImage: "url('/src/assets/frontimage-bg.png')",
+            backgroundImage: "url('/assets/frontimage-bg.png')",
           }}
         >
           {/* Input Front Image */}

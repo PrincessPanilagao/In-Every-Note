@@ -48,7 +48,7 @@ const Signup = () => {
       {isLoggedIn ? (
         <ErrorPage />
       ) : (
-        <div className="bg-[url('/src/assets/signup-bg.png')] bg-no-repeat bg-center bg-cover min-h-screen w-full h-screen flex items-center justify-center">
+        <div className="bg-[url('/assets/signup-bg.png')] bg-no-repeat bg-center bg-cover min-h-screen w-full h-screen flex items-center justify-center">
           {/* Toast alert container */}
           <ToastContainer
             position="top-right"

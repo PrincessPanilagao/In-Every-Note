@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     // Background for entire site
-    <div className="bg-[url('/src/assets/site-bg.png')] bg-no-repeat bg-center bg-cover min-h-screen w-full">
+    <div className="bg-[url('/assets/site-bg.png')] bg-no-repeat bg-center bg-cover min-h-screen w-full">
       {/* Routes of entire web app */}
       <Router>
         <Routes>
