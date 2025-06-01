@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const Home = () => {
-  const desktopImages = ["/src/assets/cover-image.png", "/src/assets/cover-image-2.png"];
-  const mobileImages = ["/src/assets/cover-image-mbl.png", "/src/assets/cover-image-mbl-2.png"];
+  const desktopImages = ["/assets/cover-image.png", "/assets/cover-image-2.png"];
+  const mobileImages = ["/assets/cover-image-mbl.png", "/assets/cover-image-mbl-2.png"];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);

@@ -32,7 +32,7 @@ const Header = () => {
             <div className="w-full relative flex justify-center">
               {/* Responsive background container */}
               <div
-                className="w-full md:w-[95%] lg:w-[90%] min-h-[40vh] sm:min-h-[50vh] lg:min-h-[60vh] bg-no-repeat bg-center bg-contain bg-[url('/src/assets/header-bg-mobile-1.png')] sm:bg-[url('/src/assets/header-bg.png')] select-none transition-opacity duration-300 flex flex-col items-start justify-center px-6 sm:px-12 py-10 sm:py-16 gap-2"
+                className="w-full md:w-[95%] lg:w-[90%] min-h-[40vh] sm:min-h-[50vh] lg:min-h-[60vh] bg-no-repeat bg-center bg-contain bg-[url('/assets/header-bg-mobile-1.png')] sm:bg-[url('/assets/header-bg.png')] select-none transition-opacity duration-300 flex flex-col items-start justify-center px-6 sm:px-12 py-10 sm:py-16 gap-2"
               >
                 {/* Username display */}
                 <h1 className="ml-13 md:ml-12 lg:ml-12 sm:mr-12 text-2xl md:text-3xl lg:text-4xl text-[#FCFAF9] font-bold font-worksans sm:text-left">

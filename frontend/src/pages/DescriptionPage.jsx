@@ -61,7 +61,7 @@ const DescriptionPage = () => {
             className="size-[34vh] md:size-[40vh] lg:size-[45vh] object-cover shadow-[0_4px_10px_rgba(38,36,36,0.7)] -rotate-3"
           />
           <img
-            src="/src/assets/vinyl.png"
+            src="/assets/vinyl.png"
             className="h-[30vh] md:h-[35vh] lg:h-[42vh] object-contain -rotate-3"
             draggable="false"
           />

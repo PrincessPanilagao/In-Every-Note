@@ -23,7 +23,7 @@ const YourNotes = () => {
           <div className="flex flex-row items-center justify-center gap-2">
             {/* Asterisk image */}
             <img
-              src="/src/assets/your-notes-icon.png"
+              src="/assets/your-notes-icon.png"
               alt="Your Notes Icon"
               className="w-[25%] h-auto items-center"
               draggable="false"

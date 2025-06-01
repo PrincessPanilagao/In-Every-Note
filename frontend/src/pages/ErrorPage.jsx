@@ -8,7 +8,7 @@ const ErrorPage = () => {
       {/* Page Not Found Image */}
       <div className="w-full relative flex justify-center">
         <img
-          src="/src/assets/pnf-image.png"
+          src="/assets/pnf-image.png"
           alt="Page Not Found"
           className="w-[69%] md:w-[50%] lg:w-[32%] h-auto mx-auto select-none transition-opacity duration-300"
           draggable="false"

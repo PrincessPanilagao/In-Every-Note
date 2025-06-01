@@ -32,7 +32,7 @@ const NoteCard = ({ items }) => {
             className="size-[38vh] border-2 border-[#262424] object-cover shadow-[0_4px_10px_rgba(38,36,36,0.7)] shadow-xl hover:shadow-lg transition-all duration-300"
           />
           <img
-            src="/src/assets/vinyl.png"
+            src="/assets/vinyl.png"
             className="h-[35vh] object-contain "
             draggable="false"
           />
