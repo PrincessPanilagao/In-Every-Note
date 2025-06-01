@@ -24,7 +24,7 @@ const App = () => {
     const fetch = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/v1/check-cookie",
+          "https://in-every-note-backend.onrender.com/api/v1/check-cookie",
           { withCredentials: true }
         );
         if (res.data.message == true) {
