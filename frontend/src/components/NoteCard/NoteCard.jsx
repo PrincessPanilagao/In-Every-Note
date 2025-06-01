@@ -38,14 +38,14 @@ const NoteCard = ({ items }) => {
           />
         </div>
 
-        <div className="mt-6 w-[82%] px-5 py-4 font-worksans text-[#FCFAF9] rounded outline-none bg-[#740F03]">
+        <div className="mt-6 w-[82%] px-3 py-4 font-worksans text-[#FCFAF9] rounded outline-none bg-[#740F03]">
           {/* Recipient */}
           <div className="text-lg font-semibold">
             <i>{`To: ${items.recipient.slice(0, 20)}`}</i>
           </div>
           {/* Message */}
-          <div className="mt-1 leading-5 text-base text-[#F8F2ED]">
-            {items.message.slice(0, 50)}
+          <div className="mt-1 leading-5 text-sm text-[#F8F2ED]">
+            {`${items.message.slice(0, 50)}...`}
           </div>
 
           {/* Play Music */}

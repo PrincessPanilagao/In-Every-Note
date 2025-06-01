@@ -1,7 +1,7 @@
 const authMiddleware = require("../middleware/authMiddleware"); // Middleware to check if user is authenticated
 const upload = require("../middleware/multer"); // Middleware to handle file uploads
 const User = require("../models/user"); // User model
-const Note = require("../models/notes"); // ✅ Renamed to avoid conflict (capital N for Mongoose model)
+const Note = require("../models/notes"); // Renamed to avoid conflict (capital N for Mongoose model)
 const router = require("express").Router();
 
 // Add Note
