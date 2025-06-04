@@ -39,4 +39,4 @@ Have you ever listened to a song and thought, *“This reminds me of them”?*
 ## 🎶 **Web App (Walkthrough & Live URL)** 
 **★ Live URL**: [https://ineverynote.onrender.com](https://ineverynote.onrender.com)
 
-**★ Walkthrough Video**: [Watch on YouTube](https://youtu.be/8iTT-WxYumU)
+**★ Walkthrough Video**: [Watch on YouTube](https://www.youtube.com/watch?v=8iTT-WxYumU)
